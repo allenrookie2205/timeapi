@@ -27,7 +27,10 @@ public class TimeController {
      */
     @GetMapping("/time")
     public ResponseEntity getTimeZones(@RequestParam("timezone") String timezone) {
-        if(StringUtils.isEmpty(timezone) || !requestValidator.isAmericaTimezone(timezone)) {
+        if (StringUtils.isEmpty(timezone)) {
+            return new ResponseEntity("Please pass a valid timezone in the request.", HttpStatus.BAD_REQUEST);
+        }
+        if(!requestValidator.isAmericaTimezone(timezone)) {
             return new ResponseEntity("Timezone doesn't belong to US", HttpStatus.BAD_REQUEST);
         }
         Timezone response = timeService.getTimeZoneDetails(timezone);

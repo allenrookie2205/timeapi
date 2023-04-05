@@ -1,7 +1,5 @@
 package com.timeapi.timeapi;
 
-import com.timeapi.timeapi.controller.TimeController;
-import com.timeapi.timeapi.service.TimeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
